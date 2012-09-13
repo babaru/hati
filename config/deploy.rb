@@ -35,20 +35,14 @@ set :use_sudo, false
 namespace :deploy do
   
   task :start, :roles => :app, :except => { :no_release => true } do 
-	# invoke_command "cd #{current_path};./script/ferret_server -e production start"
-    # invoke_command "service thin start"
+	run "cd #{current_path} ; bundle exec unicorn_rails -c config/unicorn.rb -D"
   end
 
   task :stop do
-  	# invoke_command "cd #{current_path};./script/ferret_server -e production stop"
-    # invoke_command "service thin stop"
+  	run "kill -s QUIT `cat /tmp/unicorn.hati.pid`"
   end
   task :restart, :roles => :app, :except => { :no_release => true } do
-    # invoke_command "cd #{current_path};./script/ferret_server -e production stop"
-    # invoke_command "service thin stop"
-
-    # invoke_command "cd #{current_path};./script/ferret_server -e production start"
-    # invoke_command "service thin start"
+    run "kill -s USR2 `cat /tmp/unicorn.hati.pid`"
   end
   
   task :seed, :roles => :app do
@@ -61,4 +55,4 @@ require 'bundler/capistrano'
 
 after "deploy:update_code", "deploy:migrate"
 # after "deploy:migrate", "deploy:seed"
-# after "deploy:create_symlink", "deploy:restart"
+after "deploy:create_symlink", "deploy:restart"
