@@ -55,4 +55,4 @@ require 'bundler/capistrano'
 
 after "deploy:update_code", "deploy:migrate"
 # after "deploy:migrate", "deploy:seed"
-# after "deploy:create_symlink", "deploy:restart"
+after "deploy:create_symlink", "deploy:restart"
