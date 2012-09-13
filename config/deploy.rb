@@ -35,20 +35,20 @@ set :use_sudo, false
 namespace :deploy do
   
   task :start, :roles => :app, :except => { :no_release => true } do 
-	invoke_command "cd #{current_path};./script/ferret_server -e production start"
-    invoke_command "service thin start"
+	# invoke_command "cd #{current_path};./script/ferret_server -e production start"
+    # invoke_command "service thin start"
   end
 
   task :stop do
-  	invoke_command "cd #{current_path};./script/ferret_server -e production stop"
-    invoke_command "service thin stop"
+  	# invoke_command "cd #{current_path};./script/ferret_server -e production stop"
+    # invoke_command "service thin stop"
   end
   task :restart, :roles => :app, :except => { :no_release => true } do
-    invoke_command "cd #{current_path};./script/ferret_server -e production stop"
-    invoke_command "service thin stop"
+    # invoke_command "cd #{current_path};./script/ferret_server -e production stop"
+    # invoke_command "service thin stop"
 
-    invoke_command "cd #{current_path};./script/ferret_server -e production start"
-    invoke_command "service thin start"
+    # invoke_command "cd #{current_path};./script/ferret_server -e production start"
+    # invoke_command "service thin start"
   end
   
   task :seed, :roles => :app do
