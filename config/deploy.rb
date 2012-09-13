@@ -55,10 +55,15 @@ namespace :deploy do
     run "cd #{current_path} && /usr/bin/env rake db:seed RAILS_ENV=production"
   end
 
+  task :create_db, :roles => :app do
+  	run "cd #{current_path} && /usr/bin/env rake db:create RAILS_ENV=production"
+  end
+
 end
 
 require 'bundler/capistrano'
 
-after "deploy:update_code", "deploy:migrate"
+after "deploy:update_code", "deploy:create_db"
+after "deploy:create_db", "deploy:migrate"
 after "deploy:migrate", "deploy:seed"
 after "deploy:create_symlink", "deploy:restart"
