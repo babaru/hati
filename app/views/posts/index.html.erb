@@ -1,0 +1,57 @@
+<div class="page-header">
+  <h3>Listing posts</h3>
+</div>
+
+<p>
+<%= link_to t('model.create', :model => Post.model_name.human), new_post_path, :class => 'btn btn-success' %>
+</p>
+
+<%= grid @posts_grid do |g| 
+  g.row_attributes do |post|
+    if post.is_sent?
+      {:class => 'muted'}
+    end
+  end
+
+  g.column :name => t('activerecord.attributes.post.body') do |post|
+    content = []
+    content << content_tag(:span, post.body)
+    content << content_tag(:span, post.id, :class => 'post_id')
+    content.join('').html_safe()
+  end
+
+  g.column :name => t('activerecord.attributes.post.image'), :html => {:style => 'width:60px;'} do |post|
+    content_tag :div, link_to(content_tag(:i, nil, :class => 'icon-zoom-in'), post.image.url, :class => 'btn', :rel => "gallery", :tooltip => "true", :title => t('activerecord.attributes.post.image')), :class => "gallery", "data-toggle" => "modal-gallery", "data-target" => "#modal-gallery" if post.image.exists?
+  end
+
+  g.column :name => t('activerecord.attributes.post.is_sent'), :html => {:style => 'width:150px;'} do |post|
+    unless post.is_sent?
+      link_to(content_tag(:i, nil, :class => "icon-arrow-right"), post_trigger_path(post), :class => "btn btn-info trigger_post", :tooltip => "true", :title => t("buttons.send.now"), "data-loading-text" => 'Loading', :remote => true, :method => :post)
+    else
+      content_tag(:span, post.sent_at.strftime("%Y-%m-%d %H:%M:%S"), :class => "small datetime")
+    end
+  end
+
+  g.column :html => {:style => 'width:150px;'} do |post|
+    content = []
+    content << link_to(content_tag(:i, nil, :class => "icon-pencil"), edit_post_path(post), :class => 'btn edit', :rel => 'tooltip', :title => t("model.edit", :model => Post.model_name.human))
+    content << link_to(content_tag(:i, nil, :class => "icon-trash"), post_path(post), :method => :delete, :confirm => t("confirms.delete"), :class => "btn btn-danger delete", :tooltip => "true", :title => t("model.delete", :model => Post.model_name.human))
+    content.join(" ").html_safe()
+  end
+end -%>
+
+<br />
+
+<%= link_to t('model.create', :model => Post.model_name.human), new_post_path, :class => 'btn btn-success' if @posts_grid.count > 10 %>
+
+<!-- modal-gallery is the modal dialog used for the image gallery -->
+<div id="modal-gallery" class="modal modal-gallery hide fade">
+    <div class="modal-header">
+        <a class="close" data-dismiss="modal">&times;</a>
+        <h3 class="modal-title"></h3>
+    </div>
+    <div class="modal-body"><div class="modal-image"></div></div>
+    <div class="modal-footer">
+
+    </div>
+</div>

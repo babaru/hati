@@ -23,6 +23,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'remotipart', '~> 1.0'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -43,7 +44,7 @@ gem 'rvm-capistrano'
 
 gem "devise", ">= 2.1.0"
 gem "simple_form"
-gem "paperclip"
+gem "paperclip", "~> 3.0"
 gem "settingslogic"
 gem "kaminari", ">= 0.13.0"
 gem "simple-navigation"
@@ -54,3 +55,4 @@ gem "wice_grid", '3.2.0.pre4'
 gem 'uuid'
 gem 'rmagick'
 gem 'rubyzip'
+gem 'rufus-scheduler'

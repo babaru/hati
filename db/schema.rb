@@ -11,7 +11,32 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120913040119) do
+ActiveRecord::Schema.define(:version => 20120914130901) do
+
+  create_table "moles", :force => true do |t|
+    t.string   "name"
+    t.string   "weibo_id"
+    t.string   "access_token"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "posts", :force => true do |t|
+    t.text     "body"
+    t.string   "weibo_id"
+    t.string   "weibo_url"
+    t.datetime "scheduled_at"
+    t.boolean  "is_sent"
+    t.datetime "sent_at"
+    t.datetime "weibo_created_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "access_token"
+  end
 
   create_table "rails_admin_histories", :force => true do |t|
     t.text     "message"

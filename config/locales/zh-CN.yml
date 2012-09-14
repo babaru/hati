@@ -1,0 +1,23 @@
+zh-CN:
+  model:
+    edit: "编辑%{model}"
+    create: "创建%{model}"
+    show: "%{model}详细页面"
+    list: "%{model}列表"
+    delete: "删除%{model}"
+  buttons:
+    start:
+      writing: 开始写作
+    reset_form: 重置表单
+    edit: 编辑
+    delete: 删除
+    send:
+      now: 立即发送
+  labels:
+    task:
+      type:
+        post_task: 撰写原发微博
+        comment_task: 撰写评论
+    back_to: 回到
+  confirms:
+    delete: 你确定要删除此项目吗？

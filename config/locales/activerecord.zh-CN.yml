@@ -1,0 +1,10 @@
+zh-CN:
+  activerecord:
+    models:
+      post: "原发微博"
+    attributes:
+      post:
+        body: 正文
+        scheduled_at: 计划发送时间
+        is_sent: 已发送?
+        image: 微博图片

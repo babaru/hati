@@ -1,0 +1,8 @@
+$('.post_id').each(function() {
+	if($(this).text() == '<%= @post.id %>') {
+		var tr = $(this).closest('tr');
+		tr.addClass("muted");
+		var td_sent = tr.find('td:nth-child(3)');
+		td_sent.html('<span class="small datetime">23234234</span>');
+	}
+});

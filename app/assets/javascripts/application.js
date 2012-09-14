@@ -12,5 +12,20 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
+//= require jquery-ui-timepicker-addon
+//= require jquery.remotipart
 //= require twitter/bootstrap
+//= require load-image.min
+//= require bootstrap-image-gallery.min
 //= require_tree .
+
+$(document).ready(function() {
+  $('.dropdown-toggle').dropdown();
+  $('input.datepicker').datepicker({dateFormat: 'yy-mm-dd'});
+  $('input.datetimepicker').datetimepicker({dateFormat: 'yy-mm-dd', timeFormat: 'hh:mm'});
+
+  $('a[tooltip="true"]').tooltip();
+
+  $('.loading-icon').hide();
+});

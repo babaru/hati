@@ -1,4 +1,9 @@
 Hati::Application.routes.draw do
+  resources :moles
+
+  resources :posts
+  match 'posts/:id/trigger(.:format)', :to => 'posts#trigger', :as => :post_trigger
+
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   devise_for :users
@@ -52,7 +57,7 @@ Hati::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'welcome#index'
+  root :to => 'posts#index'
 
   # See how all your routes lay out with "rake routes"
 

@@ -152,6 +152,8 @@ GEM
       mime-types (>= 1.16)
     rmagick (2.13.1)
     rubyzip (0.9.9)
+    rufus-scheduler (2.0.17)
+      tzinfo (>= 0.3.23)
     rvm-capistrano (1.2.7)
       capistrano (>= 2.0.0)
     sass (3.2.1)
@@ -207,13 +209,15 @@ DEPENDENCIES
   jquery-rails
   kaminari (>= 0.13.0)
   mysql2
-  paperclip
+  paperclip (~> 3.0)
   rails (= 3.2.8)
   rails-i18n
   rails_admin
+  remotipart (~> 1.0)
   rest-client
   rmagick
   rubyzip
+  rufus-scheduler
   rvm-capistrano
   sass-rails (~> 3.2.3)
   settingslogic
