@@ -11,14 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120914130901) do
+ActiveRecord::Schema.define(:version => 20120916124400) do
 
   create_table "moles", :force => true do |t|
     t.string   "name"
     t.string   "weibo_id"
     t.string   "access_token"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.boolean  "is_expired",   :default => false
   end
 
   create_table "posts", :force => true do |t|
@@ -33,9 +34,10 @@ ActiveRecord::Schema.define(:version => 20120914130901) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "access_token"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
-    t.string   "access_token"
+    t.string   "weibo_image_url"
   end
 
   create_table "rails_admin_histories", :force => true do |t|

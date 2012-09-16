@@ -2,7 +2,9 @@ $('.post_id').each(function() {
 	if($(this).text() == '<%= @post.id %>') {
 		var tr = $(this).closest('tr');
 		tr.addClass("muted");
+    var td_body = tr.find('td:nth-child(1)');
+    td_body.html('<a href="<%=escape_javascript @post.weibo_url %>" target="blank"><%= @post.body %></a>');
 		var td_sent = tr.find('td:nth-child(3)');
-		td_sent.html('<span class="small datetime">23234234</span>');
+		td_sent.html('<span class="small datetime"><%= @post.weibo_created_at.strftime("%Y-%m-%d %H:%M:%S") %></span>');
 	}
 });

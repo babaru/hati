@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts_grid = initialize_grid Post, :order => 'is_sent', :order_direction => 'asc'
+    @posts_grid = initialize_grid Post.order('is_sent asc, weibo_created_at desc, scheduled_at asc')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,6 +44,10 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
+        scheduler = Rufus::Scheduler.start_new
+        scheduler.at @post.scheduled_at.to_s do
+          Post.trigger @post.id
+        end
         format.html { redirect_to posts_path, notice: 'Post was successfully created.' }
         format.json { render json: @post, status: :created, location: @post }
       else
@@ -82,6 +86,7 @@ class PostsController < ApplicationController
   end
 
   def trigger
+    Post.trigger params[:id]
     @post = Post.find params[:id]
     respond_to do |format|
       format.js

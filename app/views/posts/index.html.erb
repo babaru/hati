@@ -15,7 +15,11 @@
 
   g.column :name => t('activerecord.attributes.post.body') do |post|
     content = []
-    content << content_tag(:span, post.body)
+    if post.weibo_url.nil? || post.weibo_url.empty?
+      content << content_tag(:span, post.body)
+    else
+      content << link_to(content_tag(:span, post.body), post.weibo_url, :target => "blank")
+    end
     content << content_tag(:span, post.id, :class => 'post_id')
     content.join('').html_safe()
   end
@@ -28,8 +32,12 @@
     unless post.is_sent?
       link_to(content_tag(:i, nil, :class => "icon-arrow-right"), post_trigger_path(post), :class => "btn btn-info trigger_post", :tooltip => "true", :title => t("buttons.send.now"), "data-loading-text" => 'Loading', :remote => true, :method => :post)
     else
-      content_tag(:span, post.sent_at.strftime("%Y-%m-%d %H:%M:%S"), :class => "small datetime")
+      content_tag(:span, post.weibo_created_at.strftime("%Y-%m-%d %H:%M:%S"), :class => "small datetime")
     end
+  end
+
+  g.column :name => t('activerecord.attributes.post.scheduled_at'), :html => {:style => 'width:150px;'} do |post|
+    content_tag :span, post.scheduled_at.strftime("%Y-%m-%d %H:%M:%S"), :class => "small datetime"
   end
 
   g.column :html => {:style => 'width:150px;'} do |post|
