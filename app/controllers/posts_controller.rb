@@ -44,7 +44,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        scheduler = Rufus::Scheduler.start_new
+        scheduler = ::Rufus::Scheduler.start_new
         scheduler.at @post.scheduled_at.to_s do
           Post.trigger @post.id
         end
