@@ -2,10 +2,20 @@ class Post < ActiveRecord::Base
 	include AttachmentAccessToken
 
 	before_create :generate_access_token
+  after_create :schedule_trigger
 
   attr_accessible :body, :image, :is_sent, :scheduled_at, :sent_at, :weibo_created_at, :weibo_id, :weibo_url, :weibo_image_url
 
   has_attached_file :image, :styles => { :thumb => "100x100>" }, :path => ":rails_root/public:url", :url => "/system/images/:access_token/pic_:style.:extension"
+
+  def schedule_trigger
+    unless self.scheduled_at.nil?
+      scheduler = Rufus::Scheduler.start_new
+      scheduler.at self.scheduled_at.to_s do
+        Post.trigger self.id
+      end
+    end
+  end
 
   class << self
     def trigger(id)

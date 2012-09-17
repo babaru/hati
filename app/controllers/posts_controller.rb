@@ -1,5 +1,3 @@
-require 'rufus/scheduler'
-
 class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
@@ -46,10 +44,6 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        scheduler = Rufus::Scheduler.start_new
-        scheduler.at @post.scheduled_at.to_s do
-          Post.trigger @post.id
-        end
         format.html { redirect_to posts_path, notice: 'Post was successfully created.' }
         format.json { render json: @post, status: :created, location: @post }
       else
