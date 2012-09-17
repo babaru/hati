@@ -38,11 +38,11 @@ namespace :deploy do
   	run "cd #{current_path} ; bundle exec unicorn_rails -c config/unicorn.rb -D"
   end
 
-  task :stop do
+  task :stop, :roles => :app, :except => { :no_release => true } do
   	run "kill -s QUIT `cat /tmp/unicorn.hati.pid`"
   end
-  
-  task :restart => [:stop, :start], :roles => :app, :except => { :no_release => true } do
+
+  task :restart => [:stop, :start] do
 
   end
 
