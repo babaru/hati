@@ -1,4 +1,4 @@
-require 'rufus-scheduler'
+require 'rufus/scheduler'
 
 class Post < ActiveRecord::Base
 	include AttachmentAccessToken
