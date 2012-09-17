@@ -12,7 +12,7 @@ class Post < ActiveRecord::Base
 
   def schedule_trigger
     unless self.scheduled_at.nil?
-      scheduler = Rufus::Scheduler.start_new
+      scheduler = ::Rufus::Scheduler.start_new
       scheduler.at self.scheduled_at.to_s do
         Post.trigger self.id
       end
