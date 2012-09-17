@@ -35,18 +35,15 @@ set :use_sudo, false
 namespace :deploy do
   
   task :start, :roles => :app, :except => { :no_release => true } do 
-	run "cd #{current_path} ; bundle exec unicorn_rails -c config/unicorn.rb -D"
+  	run "cd #{current_path} ; bundle exec unicorn_rails -c config/unicorn.rb -D"
   end
 
   task :stop do
   	run "kill -s QUIT `cat /tmp/unicorn.hati.pid`"
   end
-  task :restart, :roles => :app, :except => { :no_release => true } do
-    run "kill -s USR2 `cat /tmp/unicorn.hati.pid`"
-  end
   
-  task :seed, :roles => :app do
-    run "cd #{current_path} && /usr/bin/env rake db:seed RAILS_ENV=production"
+  task :restart => [:stop, :start], :roles => :app, :except => { :no_release => true } do
+
   end
 
 end
@@ -54,5 +51,4 @@ end
 require 'bundler/capistrano'
 
 after "deploy:update_code", "deploy:migrate"
-# after "deploy:migrate", "deploy:seed"
 after "deploy:create_symlink", "deploy:restart"
