@@ -42,9 +42,7 @@ namespace :deploy do
   	run "kill -s QUIT `cat /tmp/unicorn.hati.pid`"
   end
 
-  task :restart[:stop, :start] do
-
-  end
+  task :restart => [:stop, :start]
 
 end
 
