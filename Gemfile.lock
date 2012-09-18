@@ -151,6 +151,7 @@ GEM
     rest-client (1.6.7)
       mime-types (>= 1.16)
     rmagick (2.13.1)
+    ruby-ip (0.9.1)
     rubyzip (0.9.9)
     rufus-scheduler (2.0.17)
       tzinfo (>= 0.3.23)
@@ -216,6 +217,7 @@ DEPENDENCIES
   remotipart (~> 1.0)
   rest-client
   rmagick
+  ruby-ip
   rubyzip
   rufus-scheduler
   rvm-capistrano

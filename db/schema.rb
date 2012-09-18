@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120916124400) do
+ActiveRecord::Schema.define(:version => 20120918070751) do
+
+  create_table "ips", :id => false, :force => true do |t|
+    t.string "ip_start"
+    t.string "ip_end"
+    t.string "region"
+    t.string "comment"
+  end
 
   create_table "moles", :force => true do |t|
     t.string   "name"
