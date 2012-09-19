@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120918070751) do
+ActiveRecord::Schema.define(:version => 20120919032449) do
+
+  create_table "clicks", :force => true do |t|
+    t.text     "header"
+    t.string   "referal"
+    t.string   "remote_ip"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "ips", :id => false, :force => true do |t|
     t.string "ip_start"
