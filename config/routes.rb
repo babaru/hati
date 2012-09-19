@@ -4,6 +4,8 @@ Hati::Application.routes.draw do
   resources :posts
   match 'posts/:id/trigger(.:format)', :to => 'posts#trigger', :as => :post_trigger
 
+  match 'go/:code', :to => 'reds#index'
+
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   devise_for :users
