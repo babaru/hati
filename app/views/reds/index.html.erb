@@ -1,0 +1,8 @@
+<% unless @url.nil? %>
+<script type="text/javascript">
+$(document).ready(function() {
+  window.location.href = "<%= @url %>";
+});
+
+</script>
+<% end %>
