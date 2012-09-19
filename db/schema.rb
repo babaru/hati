@@ -11,15 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120919071041) do
+ActiveRecord::Schema.define(:version => 20120919080709) do
 
   create_table "clicks", :force => true do |t|
     t.text     "header"
     t.string   "referal"
     t.string   "remote_ip"
     t.integer  "reds_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.string   "real_ip"
+    t.string   "forwarded_for"
   end
 
   create_table "ips", :id => false, :force => true do |t|
