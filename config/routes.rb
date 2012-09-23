@@ -5,6 +5,7 @@ Hati::Application.routes.draw do
   match 'posts/:id/trigger(.:format)', :to => 'posts#trigger', :as => :post_trigger
 
   match 'go/:code', :to => 'reds#index'
+  match 'j/:code', :to => 'reds#jump'
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
