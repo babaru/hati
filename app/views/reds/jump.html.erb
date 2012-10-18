@@ -17,10 +17,10 @@
 <% unless @url.nil? %>
 <script type="text/javascript">
 // $(document).ready(function() {
-  window.location.replace("<%= @url %>");
+	var url = '<%= @url %>';
+	url = url.replace(/\&amp\;/gi, "&");
+  window.location.replace(url);
 // });
 
 </script>
 <% end %>
-
-

@@ -14,6 +14,7 @@ class RedsController < ApplicationController
   def jump
     reds = Reds.find_by_code params[:code]
     render and return if reds.nil?
-    @url = reds.url
+    @url = URI.escape reds.url
+    logger.debug @url
   end
 end
