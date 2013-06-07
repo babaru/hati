@@ -207,6 +207,7 @@ DEPENDENCIES
   devise
   font-awesome-rails
   jquery-rails
+  jquery-ui-rails
   kaminari
   multi_json
   mysql2
