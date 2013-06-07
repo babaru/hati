@@ -17,11 +17,11 @@ pid "/tmp/unicorn.hati.pid"
 if env == "production"
   # Help ensure your application will always spawn in the symlinked
   # "current" directory that Capistrano sets up.
-  working_directory "/home/app/www_root/hati.tfocusclub.com/app/hati/current"
+  working_directory "/home/app/www_root/go.sptida.com/rails/current"
 
   # feel free to point this anywhere accessible on the filesystem
   user 'app', 'app' # 'user', 'group'
-  shared_path = "/home/app/www_root/hati.tfocusclub.com/app/hati/shared"
+  shared_path = "/home/app/www_root/go.sptida.com/rails/shared"
 
   stderr_path "#{shared_path}/log/unicorn.stderr.log"
   stdout_path "#{shared_path}/log/unicorn.stdout.log"
