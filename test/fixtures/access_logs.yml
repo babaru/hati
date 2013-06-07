@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  header: MyText
+  referal: MyString
+  remote_ip: MyString
+  real_ip: MyString
+  forwarded_for: MyString
+  go_code: MyString
+  go: 
+
+two:
+  header: MyText
+  referal: MyString
+  remote_ip: MyString
+  real_ip: MyString
+  forwarded_for: MyString
+  go_code: MyString
+  go: 
