@@ -16,7 +16,7 @@ RailsAdmin.config do |config|
   # config.audit_with :paper_trail, User
 
   # Set the admin name here (optional second array element will appear in a beautiful RailsAdmin red ©)
-  config.main_app_name = ['Hati', 'Admin']
+  config.main_app_name = ['go.tida', 'Admin']
   # or for a dynamic name:
   # config.main_app_name = Proc.new { |controller| [Rails.application.engine_name.titleize, controller.params['action'].titleize] }
 
@@ -82,19 +82,19 @@ RailsAdmin.config do |config|
   # config.model User do
   #   # Found associations:
   #   # Found columns:
-  #     configure :id, :integer 
-  #     configure :email, :string 
-  #     configure :password, :password         # Hidden 
-  #     configure :password_confirmation, :password         # Hidden 
-  #     configure :reset_password_token, :string         # Hidden 
-  #     configure :reset_password_sent_at, :datetime 
-  #     configure :remember_created_at, :datetime 
-  #     configure :sign_in_count, :integer 
-  #     configure :current_sign_in_at, :datetime 
-  #     configure :last_sign_in_at, :datetime 
-  #     configure :current_sign_in_ip, :string 
-  #     configure :last_sign_in_ip, :string 
-  #     configure :created_at, :datetime 
+  #     configure :id, :integer
+  #     configure :email, :string
+  #     configure :password, :password         # Hidden
+  #     configure :password_confirmation, :password         # Hidden
+  #     configure :reset_password_token, :string         # Hidden
+  #     configure :reset_password_sent_at, :datetime
+  #     configure :remember_created_at, :datetime
+  #     configure :sign_in_count, :integer
+  #     configure :current_sign_in_at, :datetime
+  #     configure :last_sign_in_at, :datetime
+  #     configure :current_sign_in_ip, :string
+  #     configure :last_sign_in_ip, :string
+  #     configure :created_at, :datetime
   #     configure :updated_at, :datetime   #   # Sections:
   #   list do; end
   #   export do; end

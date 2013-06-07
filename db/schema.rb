@@ -11,51 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120919080709) do
+ActiveRecord::Schema.define(:version => 20130607074125) do
 
-  create_table "clicks", :force => true do |t|
+  create_table "access_logs", :force => true do |t|
     t.text     "header"
     t.string   "referal"
     t.string   "remote_ip"
-    t.integer  "reds_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
     t.string   "real_ip"
     t.string   "forwarded_for"
+    t.string   "go_code"
+    t.integer  "go_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
-  create_table "ips", :id => false, :force => true do |t|
-    t.string "ip_start"
-    t.string "ip_end"
-    t.string "region"
-    t.string "comment"
-  end
+  add_index "access_logs", ["go_id"], :name => "index_access_logs_on_go_id"
 
-  create_table "moles", :force => true do |t|
-    t.string   "name"
-    t.string   "weibo_id"
-    t.string   "access_token"
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
-    t.boolean  "is_expired",   :default => false
-  end
-
-  create_table "posts", :force => true do |t|
-    t.text     "body"
-    t.string   "weibo_id"
-    t.string   "weibo_url"
-    t.datetime "scheduled_at"
-    t.boolean  "is_sent"
-    t.datetime "sent_at"
-    t.datetime "weibo_created_at"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-    t.string   "access_token"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
-    t.string   "weibo_image_url"
+  create_table "gos", :force => true do |t|
+    t.string   "code"
+    t.string   "url"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "rails_admin_histories", :force => true do |t|
@@ -70,13 +46,6 @@ ActiveRecord::Schema.define(:version => 20120919080709) do
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
-
-  create_table "reds", :force => true do |t|
-    t.string   "code"
-    t.string   "url"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

@@ -1,13 +1,6 @@
 defaults: &defaults
-  weibo:
-    app_key: '3286201717'
-    app_secret: '66d83dabd8747e3c29310966a7be531b'
-    api:
-      status:
-        update: 'https://api.weibo.com/2/statuses/update.json'
-        upload: 'https://upload.api.weibo.com/2/statuses/upload.json'
-        queryid: 'https://api.weibo.com/2/statuses/queryid.json'
-        querymid: 'https://api.weibo.com/2/statuses/querymid.json'
+  app:
+    name: 'go.tida'
 
 development:
   <<: *defaults

@@ -6,13 +6,10 @@ zh-CN:
     list: "%{model}列表"
     delete: "删除%{model}"
   buttons:
-    start:
-      writing: 开始写作
     reset_form: 重置表单
     edit: 编辑
     delete: 删除
-    send:
-      now: 立即发送
+    sign_in: 登录
   labels:
     task:
       type:

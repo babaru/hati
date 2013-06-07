@@ -8,48 +8,5 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
- *= require_tree ../../../vendor/assets/stylesheets/themes
- *= require bootstrap-image-gallery.min
- *= require_tree .
+ *= require silver_single
  */
-
- td {
- 	vertical-align: middle !important;
- }
-
- tr.muted:first {
- 	border-top: solid #666 5px !important;
- }
-
- .muted .btn.edit, .muted .btn.delete {
- 	display:none;
- }
-
-.loading-icon {
-	display:inline;
-	width:20px;height:20px;
-	background: image_url('loader_16.gif') no-repeat center center;
-}
-
-.green-tick {
-	display: inline-block;
-	width:20px;height:20px;
-	background: image_url('accept.png') no-repeat center center;
-}
-
-.datetime.small {
-	font-size:9px;
-}
-
-.post_id {
-  display:none;
-}
-
-.muted a {
-  color: #999;
-}
-
-.muted a:hover {
-  color: #999;
-}
