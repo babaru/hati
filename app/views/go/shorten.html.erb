@@ -1,0 +1,12 @@
+
+
+<%= simple_form_for(:shorten, url: :shorten_url, method: :post, html: {class: 'form-horizontal' }) do |f| %>
+
+  <div class="form-inputs">
+
+    <%= f.input :code %>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit, '确定', class: 'button button-primary' %>
+  </div>
+<% end %>

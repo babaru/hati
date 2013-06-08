@@ -1,5 +1,7 @@
 Hati::Application.routes.draw do
   match 'go/:code', :to => 'go#index'
+  match 'j/:code', :to => 'go#index'
+  match 'shorten', :to => 'go#shorten', :as => :shorten_url
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 

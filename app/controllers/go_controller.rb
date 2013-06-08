@@ -16,4 +16,14 @@ class GoController < ApplicationController
 
     @go_url = go.url
   end
+
+  def shorten
+    if request.post?
+      @go = Go.find_by_code params[:shorten][:code]
+      api = SinaWeibo::Api::ShortenUrlRequest.new '2.00bA8_nBoJOHoD35177487ac7atD1E'
+      result = api.shorten "http://go.sptida.com/go/#{code}"
+      @go.sina_weibo_shorten_url = result['urls'][0]['url_short']
+      @go.save
+    end
+  end
 end
