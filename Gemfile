@@ -29,6 +29,8 @@ gem 'rest-client'
 gem "wice_grid"
 gem 'uuid'
 gem 'rmagick'
+gem 'axlsx'
+gem 'spreadsheet'
 gem 'rubyzip'
 gem 'rufus-scheduler'
 gem 'ruby-ip'

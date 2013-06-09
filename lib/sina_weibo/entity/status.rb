@@ -18,6 +18,10 @@ module SinaWeibo
         return SinaWeibo::Entity::Status.new data_value(:retweeted_status) if data_value(:retweeted_status)
         nil
       end
+
+      def is_original
+        !!data_value(:retweeted_status)
+      end
     end
   end
 end
