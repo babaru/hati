@@ -2,7 +2,11 @@ class Manager::AccessLogsController < ApplicationController
   # GET /manager/access_logs
   # GET /manager/access_logs.json
   def index
-    @access_logs_grid = initialize_grid(AccessLog)
+    if params[:go_id]
+      @access_logs_grid = initialize_grid(AccessLog.where(go_id: params[:go_id]))
+    else
+      @access_logs_grid = initialize_grid(AccessLog)
+    end
 
     respond_to do |format|
       format.html # index.html.erb

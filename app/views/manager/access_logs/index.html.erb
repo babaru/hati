@@ -21,7 +21,7 @@ end %>
   end
 
   g.column name: t('activerecord.attributes.access_log.go_code') do |access_log|
-    link_to access_log.go_code, manager_go_path(access_log.go) if access_log.go
+    link_to access_log.go_code, manager_gos_path
   end
 
   g.column :html => {class: 'buttons'} do |access_log|
