@@ -1,0 +1,19 @@
+.breadcrumbs {
+  padding: 0px $bigPadding;
+  margin: 0px;
+  background: $breadcrumbsBackgroundColor;
+
+  a {
+    color: $breadcrumbsFontColor;
+    text-decoration: none;
+    font: {
+      size: 12px;
+    }
+    line-height: 30px;
+    height: 30px;
+  }
+
+  .divider {
+    color: $breadcrumbsFontColor;
+  }
+}

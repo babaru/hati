@@ -1,0 +1,35 @@
+<div id="global-menu">
+  <%= render_navigation renderer: :navigation_renderer, expand_all: true do |primary|
+  primary.item :page_dashboard, render_icon_and_text_content('icon-dashboard', t('navigation.dashboard')), dashboard_path
+  primary.item :page_brands, render_icon_and_text_content('icon-user', t('navigation.brands')), brands_path
+  primary.item :page_content, render_icon_and_text_content('icon-comment-alt', t('navigation.content')), nil do |content|
+    content.item :page_articles, t('navigation.articles'), articles_path, highlights_on: /articles/
+  end
+
+  primary.item :page_media, render_icon_and_text_content('icon-desktop', t('navigation.media')), nil do |media|
+    media.item :page_kols, t('navigation.kols'), vendors_path, highlights_on: /vendors/
+    media.item :page_channels, t('navigation.channels'), channels_path, highlights_on: /channels/
+  end
+
+  primary.item :page_data, render_icon_and_text_content('icon-bar-chart', t('navigation.data')), nil do |data|
+    data.item :page_retrieve_sina_weibo_urls_data, t('navigation.retrieve_sina_weibo_urls_data'), nil, highlights_on: /data/
+  end
+
+  primary.item :page_reporting, render_icon_and_text_content("icon-file-alt", t('navigation.reporting')), nil do |reporting|
+    if current_user && current_user.visible_cabinets.count > 0
+      current_user.visible_cabinets.each do |c|
+        reporting.item "page_cabinet_#{c.id}", c.name, cabinet_path(c)
+      end
+    else
+      reporting.item "page_cabinets", t('model.list', :model => Cabinet.model_name.human), cabinets_path, highlights_on: /cabinets/
+    end
+  end
+  primary.item :page_events, render_icon_and_text_content('icon-bullhorn', t('navigation.events')), nil
+  primary.item :page_utilities, render_icon_and_text_content('icon-briefcase', t('navigation.utilities')), nil, highlights_on: /utilities/ do |u|
+    u.item :page_utilities_fuguo_table, "富国基金净值表", '/utilities/fuguo_values'
+  end
+  primary.item :page_settings, render_icon_and_text_content("icon-cogs", t('navigation.settings')), nil do |settings|
+    settings.item :page_moles_list, render_icon_and_text_content("icon-eye-open", t("model.list", model: Mole.model_name.human)), moles_path
+  end
+  end %>
+</div>

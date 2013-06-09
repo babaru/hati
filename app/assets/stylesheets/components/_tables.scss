@@ -1,0 +1,80 @@
+// Override some wice-grid class
+
+.wice-grid-container {
+  padding: $normalPadding $bigPadding;
+}
+
+.table-bordered {
+  border-color: $borderColor !important;
+}
+
+.table {
+  border: none;
+  border-top: 2px solid $tableHeaderBorderColor;
+  border-bottom: 1px solid $tableHeaderBorderColor;
+
+  th, td {
+    line-height: 30px;
+    border: none;
+  }
+
+
+  th, tfoot td {
+    background: $tableHeaderBackgroundColor;
+    color: $tableHeaderFontColor;
+    font: {
+      size: 12px;
+      weight: normal;
+    }
+    padding: 0px $normalPadding;
+  }
+
+  td {
+    vertical-align: middle;
+    font: {
+      size: 12px;
+    }
+    padding: 0px $normalPadding;
+
+    &.buttons {
+      width: 29px; height: 28px;
+      padding: 0px;
+      > .button {
+        width: 31px; height: 31px;
+        padding: 0px;
+      }
+    }
+
+    &.auto {
+      width: auto;
+    }
+
+    &.narrow {
+      width: 1px;
+      white-space: nowrap;
+    }
+
+    &.datetime {
+      width: 1px;
+      white-space: nowrap;
+    }
+
+    .progress {
+      margin: 0px;
+      line-height: 20px;
+      .bar {
+        padding: 0px $smallPadding;
+      }
+    }
+  }
+}
+
+.table-bordered {
+  @include border-radius(0);
+  border-color: $tableBorder;
+}
+
+.table-bordered thead:first-child tr:first-child > th:first-child,
+.table-bordered tbody:first-child tr:first-child > td:first-child {
+  @include border-radius(0);
+}

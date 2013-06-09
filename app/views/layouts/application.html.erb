@@ -2,24 +2,51 @@
 <html>
 <head>
   <title><%= Settings.app.name %></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="/assets/favicon.ico" />
-  <%= stylesheet_link_tag :application, :media => "all" %>
-
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= yield :js %>
   <%= csrf_meta_tags %>
 </head>
-  <body>
-    <div id="page">
-      <div id="header">
-        <div id="logo"></div>
-      </div>
+<body>
+  <div id="page">
+    <div id="global-header">
+      <div id="logo" class="pull-left"></div>
+      <ul id="current-user-panel" class="nav pull-right clearfix">
+        <%- if user_signed_in? %>
+        <li class="dropdown">
+          <a href="javascript:void(0);" class="dropdown-toggle"><%= t("labels.welcome")%>, <strong><%= current_user.email %></strong> <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li>
+              <%= link_to(t("buttons.sign_out"), destroy_user_session_path, :method=>'delete') %>
+            </li>
+          </ul>
+        </li>
+        <% else %>
+        <li><%= link_to t("buttons.sign_in"), :user_session %></li>
+        <% end -%>
+      </ul>
+    </div>
+    <div id="global-main">
+
+      <%= render_navigation renderer: :global_menu %>
+
       <div id="main" class="clearfix">
+
+        <%= render_navigation renderer: :page_menu, expand_all: true %>
+
         <div class="content">
+          <%= render partial: 'shared/components/notification' %>
+
           <%= yield %>
         </div>
+
       </div>
     </div>
-    <div id="footer">
-      tida &copy; 2013 All Rights Reserved. <a href="http://www.miit.gov.cn/" target="blank">苏ICP备13009122号-1</a>
-    </div>
-  </body>
+  </div>
+
+  <%= yield :anything_else %>
+
+</body>
 </html>

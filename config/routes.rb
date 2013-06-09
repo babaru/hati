@@ -1,13 +1,15 @@
 Hati::Application.routes.draw do
-  match 'go/:code', :to => 'go#index'
-  match 'j/:code', :to => 'go#index'
-  match 'shorten', :to => 'go#shorten', :as => :shorten_url
-
-  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   devise_for :users
+  root :to => 'manager/gos#index'
 
-  root :to => 'rails_admin/main#index'
+  match 'go/:code', :to => 'go#index'
+  match 'j/:code', :to => 'go#index'
+  # match 'shorten', :to => 'go#shorten', :as => :shorten_url
+
+  namespace :manager do
+    resources :gos
+  end
 
   # See how all your routes lay out with "rake routes"
 

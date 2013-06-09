@@ -1,0 +1,86 @@
+// Variables Overrides
+
+// Links
+
+$linkColor: #666;
+
+// Colors
+
+$logoColor: #0c71b1;
+
+$blue: #56bed6;
+$green: #6aa06a;
+
+$smokeGray: #eee;
+$lightGray: #ccc;
+$gray: #999;
+$darkGray: #666;
+
+$borderColor: #ddd;
+
+// Dropdowns
+
+// $dropdownBackground: white;
+
+// Table
+
+$tableBorderColor: $borderColor;
+$tableHeaderBorderColor: $borderColor;
+$tableHeaderBackgroundColor: transparent;
+$tableHeaderFontColor: $gray;
+$tableBackgroundAccent: #f8f8f8;
+$tableBackgroundHover: darken($tableBackgroundAccent, 5%);
+
+// Typography
+$extremeBigFontSize: 30px;
+$bigFontSize: 24px;
+$middleFontSize: 20px;
+$normalFontSize: 14px;
+$smallFontSize: 12px;
+
+// Buttons
+$baseBorderRadius: 0px;
+$btnBackground: #ddd;
+$btnPrimaryBackground: #555;
+$btnSuccessBackground: #1b7e5a;
+$btnWarningBackground: #dda56c;
+$btnDangerBackground: #e76e66;
+$btnInfoBackground: #695b8e;
+$btnInverseBackground: #232323;
+
+// Menus
+$pageMenuBackgroundColor: #f5f4ee;
+$pageMenuForeColor: #7a7977;
+$pageMenuHoverBackgroundColor: #a6a4a1;
+$pageMenuHoverForeColor: #edede6;
+$pageMenuActiveBackgroundColor: #73726f;
+$pageMenuActiveForeColor: #f5f5ed;
+$pageMenuBorderColor: #e6e6e6;
+
+$menuBackgroundColor: #2b343d;
+
+// Titles
+$pageTitleBackgroundColor: white;
+$pageTitleFontColor: $darkGray;
+$articleTitleFontColor: $darkGray;
+
+// Breadcrumbs
+$breadcrumbsBackgroundColor: #616161;
+$breadcrumbsFontColor: #ccc;
+
+// Forms
+$formActionsBackgroundColor: #f2f2f2;
+$formBorderColor: $borderColor;
+
+// Paddings
+$smallPadding: 5px;
+$normalPadding: 10px;
+$bigPadding: 15px;
+$largePadding: 20px;
+
+@import 'bootstrap';
+@import 'font-awesome';
+// @import 'bootstrap/reset';
+// @import 'bootstrap/responsive';
+@import 'bootstrap/mixins';
+

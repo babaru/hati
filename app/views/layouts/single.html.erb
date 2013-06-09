@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= Settings.app.name %></title>
+  <link rel="shortcut icon" href="/assets/favicon.ico" />
+  <%= stylesheet_link_tag :single, :media => "all" %>
+
+  <%= csrf_meta_tags %>
+</head>
+  <body>
+    <div id="page">
+      <div id="header">
+        <div id="logo"></div>
+      </div>
+      <div id="main" class="clearfix">
+        <div class="content">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+    <div id="footer">
+      tida &copy; 2013 All Rights Reserved. <a href="http://www.miit.gov.cn/" target="blank">苏ICP备13009122号-1</a>
+    </div>
+  </body>
+</html>

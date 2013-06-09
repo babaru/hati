@@ -1,0 +1,47 @@
+//
+// Forms
+// --------------------------------------------------
+
+form {
+  margin: 0px $bigPadding;
+  padding: $bigPadding 0;
+  border-top: 2px solid $formBorderColor;
+  border-bottom: 1px solid $formBorderColor;
+  .form-actions {
+    margin: 0px;
+    padding: 0px;
+    background: white;
+    border: none;
+  }
+
+  .form-inputs {
+    label {
+      font-size: 12px;
+      font-weight: bold;
+      color: $gray;
+    }
+  }
+}
+
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+  border: $borderColor solid 2px;
+  @include box-shadow(none);
+}
+
+

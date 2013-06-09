@@ -1,0 +1,30 @@
+<%= render_page_title "#{t('model.list', model: Go.model_name.human)}" do |toolbar|
+  toolbar << {
+    name: render_icon_and_text_content('icon-plus-sign', t('model.create', :model => Go.model_name.human)),
+    url: new_manager_go_path,
+    options: {class: 'button button-primary'}
+  }
+end %>
+
+<%= grid(@gos_grid, :show_filters => :always) do |g|
+    
+  g.column name: t('activerecord.attributes.go.code') do |go|
+    go.code
+  end
+    
+  g.column name: t('activerecord.attributes.go.url') do |go|
+    go.url
+  end
+        
+  g.column name: t('activerecord.attributes.go.sina_weibo_shorten_url') do |go|
+    go.sina_weibo_shorten_url
+  end
+  
+  g.column :html => {class: 'buttons'} do |go|
+    link_to(render_icon_content('icon-edit'), edit_manager_go_path(go), :class => 'button', :rel => 'tooltip', :title => t('buttons.edit'))
+  end
+
+  g.column :html => {class: 'buttons'} do |go|
+    link_to(render_icon_content('icon-trash'), manager_go_path(go), :method => :delete, :confirm => t("confirms.delete"), :class => 'button', :rel => 'tooltip', :title => t('buttons.delete'))
+  end
+end -%>

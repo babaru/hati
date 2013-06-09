@@ -1,0 +1,31 @@
+$modalHeaderBackgroundColor: #eee;
+$modalHeaderFontColor: $pageTitleFontColor;
+
+.modal {
+  @include border-radius(0px);
+  border: none;
+  .modal-header {
+    border: none;
+    color: $modalHeaderFontColor;
+    padding: 0px $bigPadding;
+    border-top: 5px solid #ccc;
+    h4 {
+      font-weight: normal;
+      line-height: 40px;
+    }
+  }
+
+  .modal-footer {
+    background: none;
+    border: none;
+    padding: $normalPadding $normalPadding;
+  }
+
+  form {
+    border: none;
+  }
+}
+
+.modal-backdrop {
+
+}

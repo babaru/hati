@@ -1,0 +1,15 @@
+
+<%= simple_form_for( ['manager', @go], :html => {:class => 'form-horizontal' }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <div class="control-group url optional go_result_url"><label class="url optional control-label" for="go_result_url">Result url</label><div class="controls"><%= "#{request.protocol}#{request.host_with_port}/go/#{@go.code}" %></div></div>
+
+    <%= f.input :code %>
+    <%= f.input :url %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: 'button button-primary' %>
+  </div>
+<% end %>

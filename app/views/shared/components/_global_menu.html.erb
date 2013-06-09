@@ -1,0 +1,9 @@
+<div id="global-menu">
+  <ul>
+    <% global_menu.each do |menu| %>
+    <li>
+    <%= link_to render_icon_and_text_content(menu[:icon], menu[:name]), menu[:url], class: menu[:classes] %>
+    </li>
+    <% end %>
+  </ul>
+</div>

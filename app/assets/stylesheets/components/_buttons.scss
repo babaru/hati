@@ -1,0 +1,68 @@
+.button {
+  @extend .btn;
+  font-size: 12px !important;
+  height: 32px;
+  line-height: 32px;
+  padding: 0px 15px;
+  text-shadow: none;
+  background: $btnBackground;
+  @include box-shadow(none);
+  border: none;
+  border-bottom: 2px solid darken($btnBackground, 20%);
+
+  &.disabled,
+  &[disabled] {
+    &:hover {
+      background: $btnBackground;
+      color: $grayDark;
+      @include opacity(75%);
+    }
+  }
+
+  &.strong {
+    font-weight: bold;
+  }
+
+  .button:hover, .button:active {
+    background: darken($btnBackground, 10%);
+    @include box-shadow(none);
+    color: white;
+    border: none;
+  }
+}
+
+@mixin extend-button($backgroundColor) {
+  @content;
+  background: $backgroundColor;
+  border-bottom-color: darken($backgroundColor, 10%);
+  &:hover,
+  &:active {
+    background: darken($backgroundColor, 10%);
+  }
+}
+
+
+.button-primary {
+  @include extend-button($btnPrimaryBackground) { @extend .btn-primary; }
+}
+
+.button-success {
+  @include extend-button($btnSuccessBackground) { @extend .btn-success; }
+}
+
+.button-warning {
+  @include extend-button($btnWarningBackground) { @extend .btn-warning; }
+}
+
+.button-danger {
+  @include extend-button($btnDangerBackground) { @extend .btn-danger; }
+}
+
+.button-info {
+  @include extend-button($btnInfoBackground) { @extend .btn-info; }
+}
+
+.button-inverse {
+  @include extend-button($btnInverseBackground) { @extend .btn-inverse; }
+}
+

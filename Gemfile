@@ -26,8 +26,6 @@ gem "kaminari"
 gem "simple-navigation"
 gem "rails-i18n"
 gem 'rest-client'
-gem 'rails_admin'
-gem 'rails_admin-i18n'
 gem "wice_grid"
 gem 'uuid'
 gem 'rmagick'

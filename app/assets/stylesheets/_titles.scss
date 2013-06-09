@@ -1,0 +1,57 @@
+.page-title {
+  padding: 0px $bigPadding;
+  h3 {
+    font: {
+      size: 21px;
+      weight: normal;
+    }
+    line-height: 60px;
+    height: 60px;
+    color: $pageTitleFontColor;
+    padding: 0px; margin: 0px;
+  }
+
+  .toolbar {
+    @extend .pull-right;
+    padding: $bigPadding 0px;
+    .button {
+      height: 30px;
+      line-height: 30px;
+    }
+  }
+}
+
+.article-title {
+  margin-top: $normalPadding;
+  margin: 0px $bigPadding !important;
+  padding: 0px 0px;
+  padding-left: $normalPadding;
+  background: $smokeGray;
+  h4 {
+    font: {
+      size: 16px;
+      weight: normal;
+    }
+    color: $articleTitleFontColor;
+    line-height: 30px;
+    height: 30px;
+    padding: 0px; margin: 0px;
+
+    &.icon {
+      padding-left: 30px;
+    }
+
+    &.sina {
+      background: image-url('sina_logo_16x16.png') no-repeat 5px 5px;
+    }
+  }
+
+  .toolbar {
+    @extend .pull-right;
+    padding: 0px;
+    .button {
+      height: 30px;
+      line-height: 30px;
+    }
+  }
+}

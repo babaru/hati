@@ -1,0 +1,310 @@
+/*
+ *= require bootstrap-overwrite
+ *= require bootstrap-datetimepicker.min
+ *= require datepicker
+ *= require wice_grid
+ *= require_tree ../../../vendor/assets/stylesheets/jquery-ui
+ *= require_self
+ */
+
+@import 'components';
+@import 'menus';
+@import 'titles';
+@import 'breadcrumbs';
+@import 'icons';
+
+@import 'brands_list';
+
+html, body {
+  padding: 0; margin: 0;
+  width: 100%; height: 100%;
+  font-family: "Hiragino Sans GB", "Lucida Grande", arial, sans-serif;
+  color: #383839;
+  font: {
+    size: 12px;
+  }
+}
+
+a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.grid {
+  padding: 0px 15px;
+  margin-top: 10px;
+
+  .grid-header {
+
+    h4 {
+      padding: 0px; margin: 0px;
+      font-size: 16px;
+      line-height: 36px;
+      color: #888;
+    }
+
+    .btn-toolbar {
+      margin: 8px 0px;
+    }
+
+    [class*="span"]:first-child {
+      padding-left: 1px;
+    }
+
+    [class*="span"]:last-child {
+      padding-right: 1px;
+    }
+  }
+}
+
+.table {
+
+  header {
+    padding: 5px 10px;
+    border-top: #eee solid 1px;
+    border-left: #eee solid 1px;
+    border-right: #eee solid 1px;
+    background: #f9f9f9;
+    color: #666;
+
+    h4 {
+      font: {
+        size: 16px;
+      }
+      color: #999;
+    }
+  }
+
+  .container-fluid {
+    padding: 0px; margin: 0px;
+
+    .row-fluid {
+      padding: 0px; margin: 0px;
+    }
+
+    .btn-group {
+      padding: 8px 0px;
+    }
+
+    .btn-toolbar {
+      padding: 0px;
+      margin: 0px;
+    }
+
+    .title-btn-group {
+      @include border-radius(5px);
+      border: #eee solid 1px;
+      background: #eee;
+    }
+  }
+}
+
+div.table, article.table {
+  .number {
+    text-align: right;
+    font: {
+      weight: bold;
+    }
+  }
+
+  .datetime {
+    text-align: center;
+  }
+}
+
+.container-fluid {
+  padding: 0px; margin: 0px;
+
+  .row-fluid {
+    padding: 0px; margin: 0px;
+  }
+}
+
+.page-header {
+  padding: 0px;
+  border-bottom: 1px solid #eee;
+  margin: 0px;
+
+  .container-fluid {
+    .row-fluid {
+      [class*="span"] {
+        padding-right: 15px;
+      }
+    }
+  }
+
+  h3 {
+    line-height: 40px;
+    padding: 0px; margin: 0px 15px;
+    color: #555;
+    font: {
+      size: 20px;
+      weight: bold;
+    }
+    height: 40px;
+  }
+
+  .page-toolbar {
+    padding: 7px 0px;
+  }
+}
+
+
+.copyright {
+  font-weight: bold;
+  font-size: 9px;
+  color: #7d7d80;
+}
+
+#page {
+
+  #global-header {
+    display: block;
+    position: absolute;
+    top: 0; left: 0px;
+    height: 40px; width: 100%;
+    background: $logoColor;
+    z-index: 1000;
+    color: white;
+
+    #logo {
+      width: 120px;
+      height: 40px;
+      background: image-url("logo_40.png") no-repeat;
+    }
+
+    #current-user-panel {
+      display: block;
+      width: auto; height: 40px;
+      margin: 0px 20px;
+
+      > li {
+        line-height: 40px;
+
+        a {
+          color: white;
+          font-size: 11px;
+
+          .caret {
+            position: relative;
+            top: 10px;
+            @include caret-down(white);
+          }
+        }
+
+        &.open {
+          .caret {
+            @include caret-up(white);
+          }
+        }
+
+        .dropdown-menu {
+          padding: 0px;
+          > li {
+            padding: 0px; margin: 0px;
+
+            a {
+              margin: 0px; padding: 5px 20px;
+              // @include block-link;
+
+              &:hover {
+                // @include hover-block-link;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  #global-main {
+    display: block;
+    height: auto; width: 100%;
+    position: absolute;
+    top: 40px; bottom: 0px;
+    z-index: 100;
+
+    #main {
+      float: left;
+      position: relative;
+      min-height: 100%; width: 86%;
+
+      > .content {
+        position: absolute;
+        height: 100%; width: 84%;
+        z-index: 2;
+        overflow: auto;
+      }
+
+      > .sidebar {
+        position: absolute;
+        right: 0px; left: 84%;
+        height: 100%; width: 16%;
+        background: $menuBackgroundColor;
+        z-index: 1;
+
+        .toolbar {
+          padding: 10px 15px;
+        }
+
+        .navigation {
+          list-style: none;
+          margin: 0px;
+          font: {
+            size: 14px;
+            weight: bold;
+          }
+          li {
+            a {
+              padding: 8px 15px;
+              // @include block-link;
+
+              &:hover {
+                // @include hover-block-link;
+              }
+            }
+
+            &.active {
+              a {
+                // @include active-block-link;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  #global-footer {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 100%; height: 40px;
+    z-index: 1;
+    text-align: center;
+    line-height: 40px;
+    background: #eee;
+
+    span.copyright {
+      font-size: 9px;
+      font-weight: normal;
+    }
+  }
+
+}
+
+.bootstrap-datetimepicker-widget {
+  z-index: 1060;
+}
+
+.modal {
+  form {
+    margin: 0px;
+    .control-group:last-child {
+      margin-bottom: 0px;
+    }
+  }
+}
