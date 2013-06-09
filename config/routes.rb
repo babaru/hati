@@ -8,7 +8,11 @@ Hati::Application.routes.draw do
   # match 'shorten', :to => 'go#shorten', :as => :shorten_url
 
   namespace :manager do
-    resources :gos
+    resources :gos do
+      resources :access_logs
+    end
+
+    resources :gos, :access_logs
   end
 
   # See how all your routes lay out with "rake routes"

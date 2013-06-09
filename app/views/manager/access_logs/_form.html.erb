@@ -1,0 +1,25 @@
+
+<%= simple_form_for( ['manager', @access_log], :html => {:class => 'form-horizontal' }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+            
+    <%= f.input :header %>
+          
+    <%= f.input :referal %>
+          
+    <%= f.input :remote_ip %>
+          
+    <%= f.input :real_ip %>
+          
+    <%= f.input :forwarded_for %>
+          
+    <%= f.input :go_code %>
+          
+    <%= f.input :go_id %>
+                    </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: 'button button-primary' %>
+  </div>
+<% end %>

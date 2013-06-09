@@ -1,4 +1,5 @@
 class Go < ActiveRecord::Base
+  has_many :access_logs
   attr_accessible :code, :url, :sina_weibo_shorten_url
 
   validates :code, uniqueness: true

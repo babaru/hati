@@ -7,19 +7,23 @@
 end %>
 
 <%= grid(@gos_grid, :show_filters => :always) do |g|
-    
+
   g.column name: t('activerecord.attributes.go.code') do |go|
-    go.code
+    link_to go.code, "#{request.protocol}#{request.host_with_port}/go/#{go.code}", target: 'blank'
   end
-    
+
   g.column name: t('activerecord.attributes.go.url') do |go|
-    go.url
+    link_to go.url, go.url, target: 'blank'
   end
-        
+
   g.column name: t('activerecord.attributes.go.sina_weibo_shorten_url') do |go|
-    go.sina_weibo_shorten_url
+    link_to go.sina_weibo_shorten_url, go.sina_weibo_shorten_url, target: 'blank'
   end
-  
+
+  g.column name: t('activerecord.attributes.go.access_logs_count') do |go|
+    link_to go.access_logs.count, manager_go_access_logs_path(go)
+  end
+
   g.column :html => {class: 'buttons'} do |go|
     link_to(render_icon_content('icon-edit'), edit_manager_go_path(go), :class => 'button', :rel => 'tooltip', :title => t('buttons.edit'))
   end
