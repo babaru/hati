@@ -2,6 +2,9 @@ defaults: &defaults
   app:
     name: 'go.tida'
     sina_weibo_access_token: '2.00bA8_nBoJOHoD35177487ac7atD1E'
+  box:
+    app_key: 's7izrbkxzy8d2dsi9obk45crpyug51e4'
+    auth_token: '5u0lqhg8k7vy9wargd9ydi76i1vvllf2'
 
 development:
   <<: *defaults

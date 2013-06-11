@@ -20,7 +20,8 @@ module SinaWeibo
       end
 
       def is_original
-        !!data_value(:retweeted_status)
+        return data_value(:retweeted_status).length == 0 if data_value(:retweeted_status)
+        data_value(:retweeted_status).nil?
       end
     end
   end

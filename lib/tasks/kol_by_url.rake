@@ -6,6 +6,8 @@ namespace :kol_by_url do
       Rails.logger = Logger.new(STDOUT)
     end
 
+    report_file = nil
+
     api = SinaWeibo::Api::ShortUrlRequest.new Settings.app.sina_weibo_access_token
 
     Axlsx::Package.new do |ap|
@@ -29,7 +31,7 @@ namespace :kol_by_url do
 
                     original_url = go.url if go
 
-                    sheet.add_row [status.user.screen_name, "http://weibo.com/#{status.user.profile_url}", original_url, status.created_at, status.text]
+                    sheet.add_row [status.user.screen_name, "http://weibo.com/#{status.user.profile_url}", original_url, status.created_at.to_s(:db), status.text]
                   end
                 end
               end
@@ -43,6 +45,9 @@ namespace :kol_by_url do
       ap.serialize report_file
       Rails.logger.info "* Created report succeed: #{report_file}"
     end
+
+    box_uploader = ::BackOffice::Box::Uploader.new
+    box_uploader.upload report_file, "微博红人报告"
   end
 end
 
