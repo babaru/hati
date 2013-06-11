@@ -14,19 +14,21 @@ namespace :kol_by_url do
       ap.workbook do |book|
         book.add_worksheet name: 'kols' do |sheet|
           sheet.add_row ['名字', '微博账户地址', '发布链接', '发布时间', '微博内容']
-          Go.find_by_monitor_group_name(args.group).each do |go|
-            result = api.share_statuses go.sina_weibo_shorten_url
-            if result["share_statuses"] && result["share_statuses"].is_a?(Array)
-              result["share_statuses"].each do |status_data|
-                status = SinaWeibo::Entity::Status.new status_data
-                if status.is_original
-                  Rails.logger.debug "** Status:"
-                  Rails.logger.debug "** text:      #{status.text}"
-                  Rails.logger.debug "** user:      #{status.user.screen_name}"
-                  Rails.logger.debug "** user_url:  http://weibo.com/#{status.user.profile_url}"
-                  Rails.logger.debug "** --------\r\n"
-                  original_url = go.url
-                  sheet.add_row [status.user.screen_name, "http://weibo.com/#{status.user.profile_url}", original_url, status.created_at.to_s(:db), status.text]
+          Go.where(monitor_group_name: args.group).each do |go|
+            if go.sina_weibo_shorten_url
+              result = api.share_statuses go.sina_weibo_shorten_url
+              if result["share_statuses"] && result["share_statuses"].is_a?(Array)
+                result["share_statuses"].each do |status_data|
+                  status = SinaWeibo::Entity::Status.new status_data
+                  if status.is_original
+                    Rails.logger.debug "** Status:"
+                    Rails.logger.debug "** text:      #{status.text}"
+                    Rails.logger.debug "** user:      #{status.user.screen_name}"
+                    Rails.logger.debug "** user_url:  http://weibo.com/#{status.user.profile_url}"
+                    Rails.logger.debug "** --------\r\n"
+                    original_url = go.url
+                    sheet.add_row [status.user.screen_name, "http://weibo.com/#{status.user.profile_url}", original_url, status.created_at.to_s(:db), status.text]
+                  end
                 end
               end
             end
