@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130608063135) do
+ActiveRecord::Schema.define(:version => 20130611075434) do
 
   create_table "access_logs", :force => true do |t|
     t.text     "header"
@@ -30,9 +30,11 @@ ActiveRecord::Schema.define(:version => 20130608063135) do
   create_table "gos", :force => true do |t|
     t.string   "code"
     t.string   "url"
-    t.datetime "created_at",             :null => false
-    t.datetime "updated_at",             :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
     t.string   "sina_weibo_shorten_url"
+    t.boolean  "is_monitoring",          :default => true
+    t.string   "monitor_group_name"
   end
 
   create_table "rails_admin_histories", :force => true do |t|

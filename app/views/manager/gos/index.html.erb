@@ -24,6 +24,10 @@ end %>
     link_to go.access_logs.count, manager_go_access_logs_path(go)
   end
 
+  g.column name: t('activerecord.attributes.go.monitor_group_name') do |go|
+    go.monitor_group_name
+  end
+
   g.column :html => {class: 'buttons'} do |go|
     link_to(render_icon_content('icon-edit'), edit_manager_go_path(go), :class => 'button', :rel => 'tooltip', :title => t('buttons.edit'))
   end
