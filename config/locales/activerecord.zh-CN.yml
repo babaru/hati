@@ -1,10 +1,18 @@
 zh-CN:
   activerecord:
     models:
-      post: "原发微博"
+      go: 跳转项目
+      access_log: 访问记录
     attributes:
-      post:
-        body: 正文
-        scheduled_at: 计划发送时间
-        is_sent: 已发送?
-        image: 微博图片
+      go:
+        code: 跳转代码
+        url: 原链接
+        sina_weibo_shorten_url: 新浪微博短链
+        access_logs_count: 访问次数
+        monitor_group_name: 监控组名
+      access_log:
+        referal: 来源地址
+        remote_ip: 服务器IP
+        real_ip: 客户IP
+        forwarded_for: 客户代理IP
+        latest_accessed_at: 访问时间

@@ -3,9 +3,10 @@ class Manager::AccessLogsController < ApplicationController
   # GET /manager/access_logs.json
   def index
     if params[:go_id]
-      @access_logs_grid = initialize_grid(AccessLog.where(go_id: params[:go_id]))
+      @access_logs_grid = initialize_grid(AccessLog.where(go_id: params[:go_id]).order("created_at DESC"))
+      @go = Go.find params[:go_id]
     else
-      @access_logs_grid = initialize_grid(AccessLog)
+      @access_logs_grid = initialize_grid(AccessLog.order("created_at DESC"))
     end
 
     respond_to do |format|
