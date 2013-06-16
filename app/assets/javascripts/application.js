@@ -1,5 +1,6 @@
+//= require jquery
+//= require jquery_ujs
+//= require jquery.ui.all
 //= require wice_grid
+//= require blue
 
-//= require tida_blue_assets
-//= require jquery.NobleCount.min
-//= require mission_loader

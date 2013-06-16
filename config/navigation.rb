@@ -32,6 +32,6 @@ SimpleNavigation::Configuration.run do |navigation|
 
   # Define the primary navigation
   navigation.items do |primary|
-    primary.item :page_gos, t('navigation.gos'), manager_gos_path, link: {class: 'global-menu-icon-dashboard'}, :highlights_on => Proc.new {highlight_menu('gos')}
+    primary.item :page_gos, t('navigation.gos'), manager_gos_path, link: {icon: 'icon-rocket'}, :highlights_on => Proc.new {highlight_menu('gos')}
   end
 end

@@ -10,7 +10,10 @@ group :assets do
   gem 'bootstrap-sass'
   gem 'font-awesome-rails'
   gem 'uglifier'
-  gem 'tida_blue_assets'
+  # gem 'tida_blue_assets'
+  gem 'bootstrap-datetimepicker-rails'
+  gem 'bootstrap-x-editable-rails'
+  gem 'tida_blue_assets', path: '/Users/apple/Projects/tida/src/tida_blue_assets'
 end
 
 gem 'jquery-rails'
@@ -36,4 +39,3 @@ gem 'rubyzip'
 gem 'rufus-scheduler'
 gem 'ruby-ip'
 gem 'box-api'
-# gem 'tida_blue_assets', path: '/Users/apple/Projects/tida/src/tida_blue_assets'

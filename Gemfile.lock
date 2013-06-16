@@ -1,3 +1,14 @@
+PATH
+  remote: /Users/apple/Projects/tida/src/tida_blue_assets
+  specs:
+    tida_blue_assets (0.0.3)
+      bootstrap-datetimepicker-rails
+      bootstrap-sass
+      bootstrap-x-editable-rails
+      font-awesome-rails
+      rails (~> 3.2.13)
+      railties (~> 3.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -34,8 +45,11 @@ GEM
       nokogiri (>= 1.4.1)
       rubyzip (>= 0.9.5)
     bcrypt-ruby (3.0.1)
+    bootstrap-datetimepicker-rails (0.0.11)
     bootstrap-sass (2.3.2.0)
       sass (~> 3.2)
+    bootstrap-x-editable-rails (1.4.4)
+      railties (>= 3.0)
     box-api (0.2.2)
       httmultiparty (~> 0.3.6)
     builder (3.0.4)
@@ -175,9 +189,6 @@ GEM
       tilt (~> 1.1, != 1.3.0)
     systemu (2.5.2)
     thor (0.18.1)
-    tida_blue_assets (0.0.2)
-      rails (~> 3.2.13)
-      railties (~> 3.2)
     tilt (1.4.1)
     treetop (1.4.14)
       polyglot
@@ -202,7 +213,9 @@ PLATFORMS
 
 DEPENDENCIES
   axlsx
+  bootstrap-datetimepicker-rails
   bootstrap-sass
+  bootstrap-x-editable-rails
   box-api
   capistrano
   coffee-rails
@@ -228,7 +241,7 @@ DEPENDENCIES
   simple-navigation
   simple_form
   spreadsheet
-  tida_blue_assets
+  tida_blue_assets!
   uglifier
   unicorn
   uuid
