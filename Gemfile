@@ -13,8 +13,10 @@ group :assets do
   # gem 'tida_blue_assets'
   gem 'bootstrap-datetimepicker-rails'
   gem 'bootstrap-x-editable-rails'
-  gem 'tida_template'
+
 end
+
+gem 'tida_template'
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
