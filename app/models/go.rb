@@ -3,7 +3,7 @@ class Go < ActiveRecord::Base
   attr_accessible :code, :url, :sina_weibo_shorten_url, :is_monitoring, :monitor_group_name
 
   validates :code, uniqueness: true
-  validates :url, uniqueness: true
+  # validates :url, uniqueness: true
   # validates :sina_weibo_shorten_url, uniqueness: true
 
   before_validation :strip_whitespace, :only => [:code, :url]
