@@ -46,7 +46,7 @@ namespace :deploy do
 end
 
 require 'bundler/capistrano'
-# set :bundle_flags, "--deployment --without development test"
+set :bundle_flags, "--deployment --without development test"
 
 after "deploy:update_code", "deploy:migrate"
 # after "deploy:migrate", "deploy:seed"
