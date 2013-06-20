@@ -3,7 +3,7 @@ set :application, "go.tida"
 set :repository,  "git@github.com:babaru/hati.git"
 set :domain, "42.121.56.31"
 
-set :rvm_ruby_string, '1.9.3-head'
+set :rvm_ruby_string, '1.9.3-p429'
 set :rvm_type, :system
 
 set :scm, :git
