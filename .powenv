@@ -1,12 +1,12 @@
-export PATH ; PATH="/Users/apple/.rvm/gems/ruby-1.9.3-head@hati/bin:/Users/apple/.rvm/gems/ruby-1.9.3-head@global/bin:/Users/apple/.rvm/rubies/ruby-1.9.3-head/bin:/Users/apple/.rvm/bin:$PATH"
-export rvm_env_string ; rvm_env_string='ruby-1.9.3-head@hati'
+export PATH ; PATH="/Users/apple/.rvm/gems/ruby-1.9.3-p429@hati/bin:/Users/apple/.rvm/gems/ruby-1.9.3-p429@global/bin:/Users/apple/.rvm/rubies/ruby-1.9.3-p429/bin:/Users/apple/.rvm/bin:$PATH"
+export rvm_env_string ; rvm_env_string='ruby-1.9.3-p429@hati'
 export rvm_path ; rvm_path='/Users/apple/.rvm'
-export rvm_ruby_string ; rvm_ruby_string='ruby-1.9.3-head'
+export rvm_ruby_string ; rvm_ruby_string='ruby-1.9.3-p429'
 export rvm_gemset_name ; rvm_gemset_name='hati'
-export RUBY_VERSION ; RUBY_VERSION='ruby-1.9.3-head'
-export GEM_HOME ; GEM_HOME='/Users/apple/.rvm/gems/ruby-1.9.3-head@hati'
-export GEM_PATH ; GEM_PATH='/Users/apple/.rvm/gems/ruby-1.9.3-head@hati:/Users/apple/.rvm/gems/ruby-1.9.3-head@global'
-export MY_RUBY_HOME ; MY_RUBY_HOME='/Users/apple/.rvm/rubies/ruby-1.9.3-head'
-export IRBRC ; IRBRC='/Users/apple/.rvm/rubies/ruby-1.9.3-head/.irbrc'
+export RUBY_VERSION ; RUBY_VERSION='ruby-1.9.3-p429'
+export GEM_HOME ; GEM_HOME='/Users/apple/.rvm/gems/ruby-1.9.3-p429@hati'
+export GEM_PATH ; GEM_PATH='/Users/apple/.rvm/gems/ruby-1.9.3-p429@hati:/Users/apple/.rvm/gems/ruby-1.9.3-p429@global'
+export MY_RUBY_HOME ; MY_RUBY_HOME='/Users/apple/.rvm/rubies/ruby-1.9.3-p429'
+export IRBRC ; IRBRC='/Users/apple/.rvm/rubies/ruby-1.9.3-p429/.irbrc'
 unset MAGLEV_HOME
 unset RBXOPT

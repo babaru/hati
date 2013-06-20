@@ -23,11 +23,13 @@ namespace :kol_by_url do
                   if status.is_original
                     Rails.logger.debug "** Status:"
                     Rails.logger.debug "** text:      #{status.text}"
-                    Rails.logger.debug "** user:      #{status.user.screen_name}"
-                    Rails.logger.debug "** user_url:  http://weibo.com/#{status.user.profile_url}"
+                    Rails.logger.debug "** user:      #{status.user.screen_name}" if status.user
+                    Rails.logger.debug "** user_url:  http://weibo.com/#{status.user.profile_url}" if status.user
                     Rails.logger.debug "** --------\r\n"
                     original_url = go.url
-                    sheet.add_row [status.user.screen_name, "http://weibo.com/#{status.user.profile_url}", original_url, status.created_at.to_s(:db), status.text]
+                    if status.user
+                      sheet.add_row [status.user.screen_name, "http://weibo.com/#{status.user.profile_url}", original_url, status.created_at.to_s(:db), status.text]
+                    end
                   end
                 end
               end

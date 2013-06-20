@@ -13,9 +13,9 @@ group :assets do
   # gem 'tida_blue_assets'
   gem 'bootstrap-datetimepicker-rails'
   gem 'bootstrap-x-editable-rails'
-
 end
 
+# gem 'tida_template', path: '/Users/apple/Projects/tida/src/tida_template'
 gem 'tida_template'
 
 gem 'jquery-rails'
